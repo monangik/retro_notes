@@ -1,16 +1,32 @@
-<h2>Change your password</h2>
-
-<%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :put }) do |f| %>
+<div id="block-login" class="block">
+  <h2>Change your password</h2>
   <%= devise_error_messages! %>
-  <%= f.hidden_field :reset_password_token %>
-
-  <div><%= f.label :password, "New password" %><br />
-  <%= f.password_field :password %></div>
-
-  <div><%= f.label :password_confirmation, "Confirm new password" %><br />
-  <%= f.password_field :password_confirmation %></div>
-
-  <div><%= f.submit "Change my password" %></div>
-<% end %>
-
-<%= render :partial => "devise/shared/links" %>
+  <div class="content login">
+    <div class="flash">
+      <div class="message notice">
+        <p>Logged in successfully</p>
+      </div>
+    </div>
+    <%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :put, :class => "form" }) do |f| %>
+      <%= devise_error_messages! %>
+      <%= f.hidden_field :reset_password_token %>
+      <div class="group">
+        <%= f.label :password, "New password", :class => "label" %>
+        <%= f.password_field :password, :class => "text_field" %>
+      </div>
+      <div class="group">
+        <%= f.label :password_confirmation, "Confirm new password", :class => "label" %>
+        <%= f.password_field :password_confirmation, :class => "text_field" %>
+      </div>
+      
+      <div class="group navform wat-cf">
+        <div class="right">
+          <button type="submit" class="button">
+            <!--img alt="Save" src="images/icons/key.png"--> Change my password
+          </button>
+        </div>
+      </div>
+      <%= render :partial => "devise/shared/links" %>
+    <% end %>
+  </div>
+</div>

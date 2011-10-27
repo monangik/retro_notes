@@ -46,5 +46,12 @@ module Retro
     config.assets.version = '1.0'
 
     config.assets.initialize_on_precompile = false
+    
+    config.to_prepare do
+      Devise::SessionsController.layout "authentication"
+      Devise::RegistrationsController.layout "authentication"
+      Devise::PasswordsController.layout "authentication"
+      
+    end
   end
 end

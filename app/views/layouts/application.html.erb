@@ -2,16 +2,45 @@
 <html>
 <head>
   <title>Retro</title>
-  <%= stylesheet_link_tag    "application" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
+  <%= stylesheet_link_tag 'themes/'+current_user.theme.name %>
+  <%= javascript_include_tag "application", :cache => true %>
+  <%= csrf_meta_tag %>
 </head>
 <body>
-	<% flash.each do |type, message| -%>
-    <p class="<%= type %>"><%= message %></p>
-  <% end -%>
-
-<%= yield %>
-
+  <div id="container">
+    <div id="header">
+      <h1><a href="/">Retro</a></h1>
+      <div id="user-navigation">
+        <ul class="wat-cf">
+          <li><%= link_to t("web-app-theme.logout", :default => "Logout"), destroy_user_session_path, :method => :delete, :class => "logout" %></li>
+        </ul>
+      </div>
+      <div id="main-navigation">
+        <ul class="wat-cf">
+          <li <%= 'class=active' if controller.controller_name == "dashboard" %>><%= link_to "Dashboard", root_url %></li>
+        </ul>
+      </div>
+    </div>    
+    <div id="wrapper" class="wat-cf">
+      <div class="flash">
+        <% flash.each do |type, message| -%>
+          <div class="message <%= type %>">
+            <p><%= message %></p>
+          </div>
+        <% end -%>
+      </div>
+      <div id="main">
+        <%= yield %>
+        <div id="footer">
+          <div class="block">
+            <p>Copyright &copy; <%= Time.now.year %> Web App.</p>
+          </div>      
+        </div>
+      </div>
+      <div id="sidebar">
+        <%= yield :sidebar %>
+      </div>
+    </div>    
+  </div>
 </body>
 </html>
