@@ -17,7 +17,8 @@
       </div>
       <div id="main-navigation">
         <ul class="wat-cf">
-          <li <%= 'class=active' if controller.controller_name == "dashboard" %>><%= link_to "Dashboard", root_url %></li>
+          <li class="first <%= 'active' if controller.controller_name == "dashboard" %>"><%= link_to "Dashboard", root_url %></li>
+          <li <%= 'class=active' if controller.controller_name == "teams" %>><%= link_to "Teams", teams_path %></li>
         </ul>
       </div>
     </div>    
