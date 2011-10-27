@@ -16,6 +16,7 @@ group :assets do
   gem 'uglifier'
 end
 gem "therubyracer"
+gem 'devise'
 
 gem 'jquery-rails'
 
