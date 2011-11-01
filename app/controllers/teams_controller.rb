@@ -1,4 +1,5 @@
 class TeamsController < ApplicationController
+  before_filter :find_team_list
 
   def index
     @teams = Team.all
@@ -68,4 +69,9 @@ class TeamsController < ApplicationController
       format.json { head :ok }
     end
   end
+  
+  protected
+    def find_team_list
+      @teams = Team.all
+    end
 end
