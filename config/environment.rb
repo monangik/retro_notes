@@ -12,3 +12,8 @@ ActionView::Base.field_error_proc = Proc.new do |html_tag, instance|
   end
 end
 
+ActionMailer::Base.delivery_method = :sendmail
+ActionMailer::Base.sendmail_settings = {
+  :location       => '/usr/sbin/sendmail',
+  :arguments      => "-i -t #{configatron.support.mail}"
+}

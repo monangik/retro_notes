@@ -1,4 +1,7 @@
 To run this application
-  1. bundle install
-  2. rake db:migrate
-  3. rake db:seed
+
+  1. cp config/database.yml.example config/database.yml
+  2. cp config/config.rb.example config/config.rb
+  3. bundle install
+  4. rake db:migrate
+  5. rake db:seed

@@ -9,7 +9,7 @@ test_benchmark.txt
 .autotest
 .DS_Store
 config/database.yml
-config/config.yml
+config/config.rb
 config/cucumber.yml
 db/*.sqlite3
 log/*

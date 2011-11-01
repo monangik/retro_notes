@@ -1,0 +1,11 @@
+case Rails.env
+  when "development"
+    configatron.email_host = 'retro.local'  
+    configatron.support.mail = "support@retro.local"
+  when "test"
+    configatron.email_host = 'retro.local'  
+    configatron.support.mail = "support@retro.local"
+  when "production"
+    configatron.email_host = 'retro.example'  
+    configatron.support.mail = "support@retro.example"
+end

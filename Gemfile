@@ -4,6 +4,7 @@ gem 'rails', '3.1.0'
 gem 'mysql2'
 gem 'devise'
 gem 'web-app-theme', '~> 0.8.0'
+gem 'configatron'
 
 gem "therubyracer"
 gem 'jquery-rails'
