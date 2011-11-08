@@ -12,5 +12,14 @@
     </div>
   </div>
 </div>
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="first active"><%= link_to "Retros", "#"  %></li>
+      <li><%= link_to "Members", team_members_path(:team_id => @team.id) %></li>
+    </ul>
+  </div>  
+</div>
+
 
 <% content_for :sidebar, render(:partial => 'sidebar') -%>

@@ -1,9 +1,11 @@
 class TeamsController < ApplicationController
+  before_filter :authenticate_user!
   before_filter :find_team_list
+  
 
   def index
-    @teams = Team.all
-
+    @teams = current_user.teams
+    
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @teams }
@@ -12,6 +14,8 @@ class TeamsController < ApplicationController
 
   def show
     @team = Team.find(params[:id])
+    @team_members = @team.members
+    @requested_members = @team.membership_requests
 
     respond_to do |format|
       format.html # show.html.erb
@@ -37,6 +41,7 @@ class TeamsController < ApplicationController
 
     respond_to do |format|
       if @team.save
+        current_user.teams << @team
         format.html { redirect_to @team, notice: 'Team was successfully created.' }
         format.json { render json: @team, status: :created, location: @team }
       else
@@ -72,6 +77,6 @@ class TeamsController < ApplicationController
   
   protected
     def find_team_list
-      @teams = Team.all
+      @teams = current_user.teams
     end
 end

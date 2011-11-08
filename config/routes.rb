@@ -4,6 +4,7 @@ Retro::Application.routes.draw do
   devise_for :users
   
   resources :teams
+  resources :team_members
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

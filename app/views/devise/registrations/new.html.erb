@@ -20,7 +20,7 @@
         
         <div class="group">
           <%= f.label :email, :class => "label" %>
-          <%= f.email_field :email, :class => "text_field" %>
+          <%= f.email_field :email, :value => params[:email] || resource.email, :class => "text_field" %>
           <span class="description">Ex: test@example.com</span>
         </div>
         

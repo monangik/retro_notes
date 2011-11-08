@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <p>
+      Hi,
+    </p>
+    <p>
+      <%= @membership_request.sender.name %> has invite you to join <strong><%= @membership_request.team.name %></strong>      
+    </p>
+    <p>
+      To accept this request sign up <%= link_to "here", new_user_registration_url(:email => @membership_request.email) %>.
+    </p>
+    <p>
+      If the link not working, copy this link to your browser <%= new_user_registration_url(:email => @membership_request.email) %>.
+    </p>
+    <p>
+      Thank you.      
+    </p>    
+  </body>
+</html>
