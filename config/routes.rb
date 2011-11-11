@@ -1,4 +1,4 @@
-Retro::Application.routes.draw do
+RetroNote::Application.routes.draw do
   
   root :to => 'dashboard#show'
   devise_for :users

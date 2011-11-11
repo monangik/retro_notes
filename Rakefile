@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Retro::Application.load_tasks
+RetroNote::Application.load_tasks

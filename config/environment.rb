@@ -2,7 +2,7 @@
 require File.expand_path('../application', __FILE__)
 
 # Initialize the rails application
-Retro::Application.initialize!
+RetroNote::Application.initialize!
 
 ActionView::Base.field_error_proc = Proc.new do |html_tag, instance|
   if html_tag =~ /<label/
