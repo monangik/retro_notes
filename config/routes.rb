@@ -1,12 +1,13 @@
-RetroNote::Application.routes.draw do 
-
+RetroNote::Application.routes.draw do
+  
   root :to => 'dashboard#show'
   devise_for :users
   
   resources :teams
   resources :team_members
   resources :retros
-  
+  resources :notes
+    
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -1,6 +1,10 @@
 class RetrosController < ApplicationController
   before_filter :authenticate_user!
   before_filter :find_team
+  
+  def edit
+    
+  end
 
   def create
     @retro = @team.retros.build(params[:retro])

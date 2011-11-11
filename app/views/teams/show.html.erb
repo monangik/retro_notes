@@ -50,6 +50,7 @@
         <tr class="<%= cycle("odd", "even") %>">
           <td><%= retro.title %></td>          
           <td class="last">
+            <%= link_to "Add notes", edit_retro_path(:id => retro.id, :team_id => @team.id) %> |
             <%= link_to "#{t("web-app-theme.delete", :default => "Delete")}", retro_path(:id =>  retro.id, :team_id => @team.id), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
           </td>
         </tr>          
