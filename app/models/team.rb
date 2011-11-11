@@ -2,6 +2,7 @@ class Team < ActiveRecord::Base
   has_many :team_members, :class_name => "TeamMember", :dependent => :destroy
   has_many :members, :source => :user, :through => :team_members
   has_many :membership_requests
+  has_many :retros
   
   validates_presence_of :name
   
