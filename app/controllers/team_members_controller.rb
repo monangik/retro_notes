@@ -1,6 +1,7 @@
 class TeamMembersController < ApplicationController
   before_filter :authenticate_user!
   before_filter :find_team
+  before_filter :find_team_list, :only => :index
 
   def index
     @team_members = @team.members

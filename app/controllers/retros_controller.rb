@@ -1,6 +1,7 @@
 class RetrosController < ApplicationController
   before_filter :authenticate_user!
   before_filter :find_team
+  before_filter :find_team_list, :only => :show
   
   def show
     @retro = @team.retros.find(params[:id])

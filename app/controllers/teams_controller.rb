@@ -1,6 +1,6 @@
 class TeamsController < ApplicationController
   before_filter :authenticate_user!
-  before_filter :find_team_list
+  before_filter :find_team_list, :except => [:create, :update, :delete]
   before_filter :find_team_by_id, :except => [:create, :new, :index]  
 
   def index

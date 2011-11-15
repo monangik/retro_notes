@@ -32,6 +32,7 @@
       </div>
       <div id="main">
         <%= yield %>
+        <% content_for :sidebar, render(:partial => 'shared/sidebar') -%>
         <div id="footer">
           <div class="block">
             <p>Copyright &copy; <%= Time.now.year %> Web App.</p>
