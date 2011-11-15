@@ -1,60 +1,24 @@
 class NotesController < ApplicationController
-  # GET /notes
-  # GET /notes.json
-  def index
-    @notes = Note.all
+  before_filter :authenticate_user!
+  before_filter :find_team
+  
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @notes }
-    end
-  end
-
-  # GET /notes/1
-  # GET /notes/1.json
-  def show
-    @note = Note.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @note }
-    end
-  end
-
-  # GET /notes/new
-  # GET /notes/new.json
-  def new
-    @note = Note.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @note }
-    end
-  end
-
-  # GET /notes/1/edit
-  def edit
-    @note = Note.find(params[:id])
-  end
-
-  # POST /notes
-  # POST /notes.json
   def create
-    @note = Note.new(params[:note])
+    @retro = @team.retros.find(params[:retro_id])
+    @retro_note = @retro.notes.build(params[:note])
 
     respond_to do |format|
-      if @note.save
-        format.html { redirect_to @note, notice: 'Note was successfully created.' }
+      if @retro_note.save
+        format.html { redirect_to retro_path(:id => @retro.id, :team_id => @team.id), notice: 'Note was successfully created.' }
         format.json { render json: @note, status: :created, location: @note }
       else
-        format.html { render action: "new" }
+        
+        format.html { redirect_to retro_path(:id => @retro.id, :team_id => @team.id), :flash => { error: "Fill up the form properly." } }
         format.json { render json: @note.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # PUT /notes/1
-  # PUT /notes/1.json
   def update
     @note = Note.find(params[:id])
 
@@ -69,14 +33,13 @@ class NotesController < ApplicationController
     end
   end
 
-  # DELETE /notes/1
-  # DELETE /notes/1.json
   def destroy
-    @note = Note.find(params[:id])
-    @note.destroy
+    @retro = @team.retros.find(params[:retro_id])
+    @retro_note = @retro.notes.find(params[:id])
+    @retro_note.destroy
 
     respond_to do |format|
-      format.html { redirect_to notes_url }
+      format.html { redirect_to retro_path(:id => @retro.id, :team_id => @team.id), notice: 'Note was successfully deleted.' }
       format.json { head :ok }
     end
   end

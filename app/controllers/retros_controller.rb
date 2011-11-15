@@ -2,8 +2,10 @@ class RetrosController < ApplicationController
   before_filter :authenticate_user!
   before_filter :find_team
   
-  def edit
-    
+  def show
+    @retro = @team.retros.find(params[:id])
+    @success_notes = @retro.notes.where("note_type = ?", "Success")
+    @failure_notes = @retro.notes.where("note_type = ?", "Failure")
   end
 
   def create

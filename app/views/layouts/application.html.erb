@@ -18,13 +18,13 @@
       <div id="main-navigation">
         <ul class="wat-cf">
           <li class="first <%= 'active' if controller.controller_name == "dashboard" %>"><%= link_to "Dashboard", root_url %></li>
-          <li <%= 'class=active' if controller.controller_name == "teams" %>><%= link_to "Teams", teams_path %></li>
+          <li <%= 'class=active' if controller.controller_name == "teams" || "retros" %>><%= link_to "Teams", teams_path %></li>
         </ul>
       </div>
     </div>    
     <div id="wrapper" class="wat-cf">
       <div class="flash">
-        <% flash.each do |type, message| -%>
+        <% flash.each do |type, message| -%>         
           <div class="message <%= type %>">
             <p><%= message %></p>
           </div>
