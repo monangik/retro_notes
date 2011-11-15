@@ -1,17 +1,4 @@
-<div class="block">
-  <div class="content">
-    <div class="inner">     
-        <p>
-          <b><%= t("activerecord.attributes.team.name", :default => t("activerecord.labels.name", :default => "Name")) %>:</b>
-          <%= @team.name %>
-        </p>
-      <div class="wat-cf">
-        <%= link_to image_tag("/assets/application_edit.png", :alt => "#{t("web-app-theme.edit", :default=> "Edit")}") + " " + t("web-app-theme.edit", :default=> "Edit"), edit_team_path(@team), :class => "button" %> 
-        <%= link_to image_tag("/assets/cross.png", :alt => "#{t("web-app-theme.delete", :default=> "Delete")}") + " " + t("web-app-theme.delete", :default => "Delete"), team_path(@team), :method => "delete", :class => "button", :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
-      </div>      
-    </div>
-  </div>
-</div>
+<%= render(:partial => 'shared/project_name') -%>
 <div class="block">
   <div class="secondary-navigation">
     <%= params[:message] if params[:message] %>
