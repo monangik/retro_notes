@@ -1,15 +1,8 @@
 <%= render(:partial => 'shared/project_name') -%>
 <div class="block">
-  <div class="secondary-navigation">
-    <%= params[:message] if params[:message] %>
-    <ul class="wat-cf">
-      <li class="first active"><%= link_to "Retros", team_path(:id => @team.id)  %></li>
-      <li><%= link_to "Members", team_members_path(:team_id => @team.id) %></li>
-    </ul>
-  </div>
+  <%= render :partial => "shared/secondary_navigation"  %>  
   <div class="content">
-    <h2 class="title"><%= @retro.title %></h2>
-    
+    <h2 class="title"><%= @retro.title %></h2>    
     <div class="inner">    
       <h3 class="title">Add Note</h3>  
       <%= form_for :note, :url => notes_path(:team_id => @team.id, :retro_id => @retro.id), :html => { :class => :form } do |f| -%>

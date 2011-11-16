@@ -1,0 +1,6 @@
+<div class="secondary-navigation">
+  <ul class="wat-cf">
+    <li class="first <%= 'active' if ["teams", "retros"].include?(controller.controller_name) %>"><%= link_to "Retros", team_path(:id => @team.id)  %></li>
+    <li <%= "class=active" if controller.controller_name == "team_members" %>><%= link_to "Members", team_members_path(:team_id => @team.id) %></li>
+  </ul>
+</div>

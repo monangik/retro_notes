@@ -1,11 +1,6 @@
 <%= render(:partial => 'shared/project_name') -%>
 <div class="block">
-  <div class="secondary-navigation">
-    <ul class="wat-cf">
-      <li class="first active"><%= link_to "Retros", "#"  %></li>
-      <li><%= link_to "Members", team_members_path(:team_id => @team.id) %></li>
-    </ul>
-  </div>
+  <%= render :partial => "shared/secondary_navigation"  %>
   <div class="content">
     <h2 class="title">Add Retro</h2>
     <div class="inner">
