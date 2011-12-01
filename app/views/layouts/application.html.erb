@@ -3,7 +3,7 @@
 <head>
   <title>RetroNote</title>
   <%= stylesheet_link_tag 'themes/'+current_user.theme.name %>
-  <%= javascript_include_tag "application", :cache => true %>
+  <%= javascript_include_tag "application", "jquery-1.7.1.js", "jquery.livequery.js", "jquery.validate.js" :cache => true %>
   <%= csrf_meta_tag %>
 </head>
 <body>
